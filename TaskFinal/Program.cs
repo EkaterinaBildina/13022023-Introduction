@@ -15,27 +15,41 @@
 
 string[] mainString = MainStringArray();
 PrintArray(mainString);
+Console.Write(" -> ");
 string[] mewString = NewStringArray(mainString);
 PrintArray(mewString);
 
 
 string[] MainStringArray()
 {
-    string[] arrayString = new string[] { "hello", "2", "world", ":-)" };
+    string[] arrayString = new string[] { "hello", "2", "world", ":-)"};
     return arrayString;
 }
 
 string[] NewStringArray(string[] array)
 {
-    string temp;
-    string[] newStringArray = new string[array.Length];
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            count += 1;
+        }
+    }
 
-for (int i = 0; i < array.Length; i++)
-{
-    temp = array[i];
-    if (temp.Length <= 3) newStringArray[i] = array[i];
-}
-return newStringArray;
+    string[] newStringArray = new string[count];
+    int j = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            newStringArray[j] = array[i];
+            j++;
+        }
+    }
+
+    return newStringArray;
 }
 
 void PrintArray(string[] arr)
