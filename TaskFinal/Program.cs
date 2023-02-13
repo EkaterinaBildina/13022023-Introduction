@@ -11,5 +11,40 @@
 // ["1234", "1567", "-2", "computer science"] -> ["-2"]
 // ["Russia", "Denmark", "Kazan"] -> []
 
-Console.WriteLine("Hi");
 
+
+string[] mainString = MainStringArray();
+PrintArray(mainString);
+string[] mewString = NewStringArray(mainString);
+PrintArray(mewString);
+
+
+string[] MainStringArray()
+{
+    string[] arrayString = new string[] { "hello", "2", "world", ":-)" };
+    return arrayString;
+}
+
+string[] NewStringArray(string[] array)
+{
+    string temp;
+    string[] newStringArray = new string[array.Length];
+
+for (int i = 0; i < array.Length; i++)
+{
+    temp = array[i];
+    if (temp.Length <= 3) newStringArray[i] = array[i];
+}
+return newStringArray;
+}
+
+void PrintArray(string[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i < arr.Length - 1) Console.Write(arr[i] + ",");
+        else Console.Write(arr[i]);
+    }
+    Console.Write("]");
+}
